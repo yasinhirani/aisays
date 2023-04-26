@@ -5,6 +5,8 @@ import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import ShareButtons from "./ShareButtons";
 import { IBookmarks } from "@/core/model/bookmarks.model";
+import toast from "react-hot-toast";
+import bookmarkTypes from "@/core/utils/bookmarkTypes";
 
 const PickupLine = () => {
   const { setTheme } = useContext(ThemeContext);
@@ -23,6 +25,7 @@ const PickupLine = () => {
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
+    toast.success("Copied to Clipboard");
   };
 
   const bookmark = (text: string) => {
@@ -32,7 +35,7 @@ const PickupLine = () => {
       );
       bookmarks.pickupLines.bookmarks.push(text);
       localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-      console.log("bookmarked");
+      toast.success("Bookmarked");
     }
   };
 
@@ -49,6 +52,7 @@ const PickupLine = () => {
           copy={copyToClipboard}
           text={pickupLine}
           bookmark={bookmark}
+          sayingType={bookmarkTypes.PICKUP_LINE}
         />
         {isLoading && (
           <div className="absolute inset-0 bg-white bg-opacity-50 z-10" />
