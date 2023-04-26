@@ -3,6 +3,7 @@ import { IBookmarks } from "@/core/model/bookmarks.model";
 import bookmarkTypes from "@/core/utils/bookmarkTypes";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const Bookmarks = () => {
   const { setTheme } = useContext(ThemeContext);
@@ -17,6 +18,7 @@ const Bookmarks = () => {
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
+    toast.success("Copied to Clipboard");
   };
 
   const deleteBookmark = (id: number, bookmarkType: string) => {
@@ -28,11 +30,13 @@ const Bookmarks = () => {
         localBookmarks.pickupLines.bookmarks.splice(id, 1);
         localStorage.setItem("bookmarks", JSON.stringify(localBookmarks));
         setBookmarks(JSON.parse(localStorage.getItem("bookmarks") as string));
+        toast.success("Deleted");
       }
       if (bookmarkType === bookmarkTypes.MOTIVATIONAL_QUOTE) {
         localBookmarks.motivationalQuotes.bookmarks.splice(id, 1);
         localStorage.setItem("bookmarks", JSON.stringify(localBookmarks));
         setBookmarks(JSON.parse(localStorage.getItem("bookmarks") as string));
+        toast.success("Deleted");
       }
     }
   };

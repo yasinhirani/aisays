@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import ShareButtons from "./ShareButtons";
 import { IBookmarks } from "@/core/model/bookmarks.model";
+import toast from "react-hot-toast";
 
 const MotivationalQuote = () => {
   const { setTheme } = useContext(ThemeContext);
@@ -23,6 +24,7 @@ const MotivationalQuote = () => {
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
+    toast.success("Copied to Clipboard");
   };
 
   const bookmark = (text: string) => {
@@ -32,7 +34,7 @@ const MotivationalQuote = () => {
       );
       bookmarks.motivationalQuotes.bookmarks.push(text);
       localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-      console.log("bookmarked");
+      toast.success("Bookmarked");
     }
   };
 
