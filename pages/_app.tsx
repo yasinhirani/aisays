@@ -1,6 +1,23 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import ThemeContext from "@/core/context";
+import Interceptor from "@/core/services/interceptor";
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
+import { useMemo, useState } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  const [theme, setTheme] = useState<number>(0);
+
+  const themeState = useMemo(
+    () => ({
+      theme,
+      setTheme,
+    }),
+    [theme]
+  );
+  return (
+    <ThemeContext.Provider value={themeState}>
+      <Component {...pageProps} />
+      <Interceptor />
+    </ThemeContext.Provider>
+  );
 }
