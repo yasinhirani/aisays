@@ -9,7 +9,7 @@ const index = () => {
     <>
       <Head>
         <title>Pickup Lines</title>
-        <link rel="shortcut icon" href="/favicon/pickupLines.ico" />
+        <link rel="shortcut icon" href="/favicon/pickup_lines.ico" />
       </Head>
       <div className="w-full h-full max-w-[65rem] mx-auto flex flex-col space-y-5">
         <Header />
