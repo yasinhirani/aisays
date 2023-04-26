@@ -15,7 +15,7 @@ const MotivationalQuote = () => {
   const getMotivationalQuote = () => {
     setIsLoading(true);
     setMotivationalQuote("");
-    axios.get("http://localhost:8080/api/getMotivationalQuote").then((res) => {
+    axios.get("/api/getMotivationalQuote").then((res) => {
       setMotivationalQuote(res.data.quote);
       setIsLoading(false);
     });

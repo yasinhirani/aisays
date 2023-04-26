@@ -1,4 +1,5 @@
 import ThemeContext from "@/core/context";
+import Interceptor from "@/core/services/interceptor";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useMemo, useState } from "react";
@@ -16,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeContext.Provider value={themeState}>
       <Component {...pageProps} />
+      <Interceptor />
     </ThemeContext.Provider>
   );
 }
