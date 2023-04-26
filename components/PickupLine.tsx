@@ -15,7 +15,7 @@ const PickupLine = () => {
   const getPickupLine = () => {
     setIsLoading(true);
     setPickupLine("");
-    axios.get("http://localhost:8080/api/getPickupLine").then((res) => {
+    axios.get("/api/getPickupLine").then((res) => {
       setPickupLine(res.data.pickup);
       setIsLoading(false);
     });
