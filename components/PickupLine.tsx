@@ -6,6 +6,7 @@ import React, { useContext, useEffect, useState } from "react";
 import ShareButtons from "./ShareButtons";
 import { IBookmarks } from "@/core/model/bookmarks.model";
 import toast from "react-hot-toast";
+import bookmarkTypes from "@/core/utils/bookmarkTypes";
 
 const PickupLine = () => {
   const { setTheme } = useContext(ThemeContext);
@@ -51,6 +52,7 @@ const PickupLine = () => {
           copy={copyToClipboard}
           text={pickupLine}
           bookmark={bookmark}
+          sayingType={bookmarkTypes.PICKUP_LINE}
         />
         {isLoading && (
           <div className="absolute inset-0 bg-white bg-opacity-50 z-10" />

@@ -6,6 +6,7 @@ import React, { useContext, useEffect, useState } from "react";
 import ShareButtons from "./ShareButtons";
 import { IBookmarks } from "@/core/model/bookmarks.model";
 import toast from "react-hot-toast";
+import bookmarkTypes from "@/core/utils/bookmarkTypes";
 
 const MotivationalQuote = () => {
   const { setTheme } = useContext(ThemeContext);
@@ -51,6 +52,7 @@ const MotivationalQuote = () => {
           copy={copyToClipboard}
           text={motivationalQuote}
           bookmark={bookmark}
+          sayingType={bookmarkTypes.MOTIVATIONAL_QUOTE}
         />
         {isLoading && (
           <div className="absolute inset-0 bg-white bg-opacity-50 z-10" />

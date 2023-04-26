@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
+import { FacebookShareButton, WhatsappShareButton } from "react-share";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
@@ -8,9 +8,10 @@ interface IProps {
   copy: (text: string) => void;
   bookmark: (text: string) => void;
   text: string;
+  sayingType: string;
 }
 
-const ShareButtons = ({ copy, text, bookmark }: IProps) => {
+const ShareButtons = ({ copy, text, bookmark, sayingType }: IProps) => {
   return (
     <>
       <div className="flex items-center space-x-8 mt-6">
@@ -23,27 +24,28 @@ const ShareButtons = ({ copy, text, bookmark }: IProps) => {
             <Image src="/images/copy.svg" alt="" width={25} height={25} />
           </figure>
         </button>
-        <a
-          href={`https://wa.me/send?text=${text}`}
+        <WhatsappShareButton
+          title={`${text}`}
+          separator=""
+          url={`https://aisays.vercel.app/${sayingType}`}
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Share on Whatsapp"
-          data-action="share/whatsapp/share"
-          target="_blank"
         >
           <figure>
             <Image src="/images/whatsapp.svg" alt="" width={25} height={25} />
           </figure>
-        </a>
-        {/* <a
-          href={`whatsapp://send?text=${text}`}
+        </WhatsappShareButton>
+        <FacebookShareButton
+          quote={`${text}`}
+          url={`https://aisays.vercel.app/${sayingType}`}
+          hashtag="#aisays"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Share on Facebook"
-          target="_blank"
         >
           <figure>
             <Image src="/images/facebook.svg" alt="" width={35} height={35} />
           </figure>
-        </a> */}
+        </FacebookShareButton>
         <button
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Save for later"
