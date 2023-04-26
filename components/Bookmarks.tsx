@@ -51,7 +51,7 @@ const Bookmarks = () => {
             {bookmarks.pickupLines.bookmarks.map((bookmark, id) => {
               return (
                 <li className="pl-2" key={Math.random()}>
-                  <div className="flex items-start space-x-5">
+                  <div className="flex flex-col md:flex-row md:items-center md:space-x-5 space-y-3 md:space-y-0">
                     <p>{bookmark}</p>
                     <div className="flex items-center space-x-4">
                       <button
@@ -64,6 +64,7 @@ const Bookmarks = () => {
                             alt=""
                             width={22}
                             height={22}
+                            className="w-6 min-w-[22px]"
                           />
                         </figure>
                       </button>
@@ -79,6 +80,7 @@ const Bookmarks = () => {
                             alt=""
                             width={22}
                             height={22}
+                            className="w-6 min-w-[22px]"
                           />
                         </figure>
                       </button>
@@ -97,7 +99,7 @@ const Bookmarks = () => {
             {bookmarks.motivationalQuotes.bookmarks.map((bookmark, id) => {
               return (
                 <li className="pl-2" key={Math.random()}>
-                  <div className="flex items-start space-x-5">
+                  <div className="flex flex-col md:flex-row md:items-center md:space-x-5 space-y-3 md:space-y-0">
                     <p>{bookmark}</p>
                     <div className="flex items-center space-x-4">
                       <button
@@ -110,6 +112,7 @@ const Bookmarks = () => {
                             alt=""
                             width={22}
                             height={22}
+                            className="w-6 min-w-[22px]"
                           />
                         </figure>
                       </button>
@@ -125,6 +128,7 @@ const Bookmarks = () => {
                             alt=""
                             width={22}
                             height={22}
+                            className="w-6 min-w-[22px]"
                           />
                         </figure>
                       </button>
